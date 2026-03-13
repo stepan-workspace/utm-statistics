@@ -27,4 +27,4 @@ migration-create:
 	docker exec -it cakephp_app app/Console/cake Migrations.migration generate
 
 migration-run:
-	docker exec -it cakephp_app app/Console/cake Migrations.migration run
+	docker exec -it cakephp_app app/Console/cake Migrations.migration run all
