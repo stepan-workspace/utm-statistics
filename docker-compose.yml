@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
 
   app:
@@ -7,6 +5,8 @@ services:
       context: .
       dockerfile: docker/php/Dockerfile
     container_name: cakephp_app
+    env_file:
+      - .env
     volumes:
       - ./app:/var/www/html
     depends_on:
@@ -35,4 +35,4 @@ services:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
-      - ./docker/db/data:/var/lib/postgresql/data
+      - ./docker/db/data/${DB_NAME}:/var/lib/postgresql/data
