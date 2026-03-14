@@ -30,31 +30,46 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 
 		echo $this->Html->css('cake.generic');
 
+		echo $this->Html->css('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
 		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('script');
 	?>
 </head>
 <body>
-	<div id="container">
-		<div id="header">
-			<h1>UTM Statistics</h1>
-            <nav>
-                <ul>
-                    <li><?php echo $this->Html->link('Главная', '/'); ?></li>
-                    <li><?php echo $this->Html->link('Статистика', '/statistics/utm/list'); ?></li>
-                </ul>
-            </nav>
-		</div>
-		<div id="content">
+    <div id="container">
+        <div id="header" class="bg-primary py-3">
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+					<a class="navbar-brand" href="/">UTM Statistics</a>
+					<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+						<li class="nav-item">
+							<?php echo $this->Html->link('Home', '/', ['class' => 'nav-link']); ?>
+						</li>
+						<li class="nav-item">
+							<?php echo $this->Html->link('Statistics', '/statistics/utm/list', ['class' => 'nav-link']); ?>
+						</li>
+					</ul>
+				</div>
+			</nav>
+        </div>
 
-			<?php echo $this->Flash->render(); ?>
+        <div id="content" class="container mt-4">
+            <?php echo $this->Flash->render(); ?>
+            <?php echo $this->fetch('content'); ?>
+        </div>
 
-			<?php echo $this->fetch('content'); ?>
-		</div>
-		<div id="footer">
-			<p>&copy; 2026 <?php echo $cakeVersion; ?></p>
-		</div>
-	</div>
+        <div id="footer" class="bg-light text-center py-3">
+            <p>&copy; 2026 <?php echo $cakeVersion; ?></p>
+        </div>
+    </div>
+
+    <?php
+        echo $this->Html->script('https://code.jquery.com/jquery-3.5.1.slim.min.js');
+        echo $this->Html->script('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js');
+    ?>
 </body>
 </html>
