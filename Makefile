@@ -21,7 +21,10 @@ db-create:
 	docker exec -it cakephp_postgres psql -U $(DB_USER) -d postgres -c "CREATE DATABASE $(DB_NAME);"
 
 cake:
-	docker exec -it cakephp_app app/Console/cake
+	docker exec -it cakephp_app app/Console/cake $(EXEC)
+
+bake:
+	docker exec -it cakephp_app app/Console/cake bake $(EXEC)
 
 migration-create:
 	docker exec -it cakephp_app app/Console/cake Migrations.migration generate
