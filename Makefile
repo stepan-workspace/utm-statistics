@@ -31,3 +31,6 @@ migration-create:
 
 migration-run:
 	docker exec -it cakephp_app app/Console/cake Migrations.migration run all
+
+permission-resolve:
+	docker exec -it cakephp_app bash -c "mkdir /var/www/html/app/tmp/ && chmod -R 775 /var/www/html/app/tmp && chown -R www-data:www-data /var/www/html/app/tmp"
