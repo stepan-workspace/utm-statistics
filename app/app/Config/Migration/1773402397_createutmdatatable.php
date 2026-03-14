@@ -52,7 +52,7 @@ class CreateUtmDataTable extends CakeMigration {
                     'created' => array(
                         'type' => 'datetime',
                         'null' => false,
-                        'default' => 'CURRENT_TIMESTAMP'
+                        'default' => null
                     ),
                     'indexes' => array(
                         'PRIMARY' => array(
