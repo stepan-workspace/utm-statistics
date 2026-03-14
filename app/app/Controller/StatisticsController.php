@@ -19,7 +19,8 @@ class StatisticsController extends AppController {
 				'fields' => array('DISTINCT UtmData.source'),
             	'limit' => 20,
 				'order' => array('UtmData.source' => 'ASC'),
-				'conditions' => array('UtmData.source IS NOT NULL')
+				'group' => array('UtmData.source'),
+				'count' => true
 			)
 		);
 
